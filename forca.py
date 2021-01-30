@@ -42,12 +42,12 @@ def imprime_mensagem_abertura():
 def imprime_letras_acertadas(letras_acertadas):
 	string = str(letras_acertadas)
 	for i in range(2,len(string)):
-		if(valida_caractere(string,i)):
-			print(string[i-1], end='')
+	    if(valida_caractere(string,i)):
+	        print(string[i-1], end='')
 	print()
 	
 def valida_caractere(string,i):
-	return string[i-1] != "'" and string[i-1] != ","
+    return string[i-1] != "'" and string[i-1] != ","
     
 def cria_palavra_secreta():
     arquivo = open("palavras.txt", "r")
