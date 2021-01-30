@@ -35,6 +35,7 @@ def jogar():
         acertou = chute == numero_secreto
         maior   = chute > numero_secreto
         menor   = chute < numero_secreto
+        revela_numero_secreto = total_de_tentativas == rodada
 
         if(acertou):
             print(f"Você Acertou e fez {pontos} pontos!!")
@@ -44,6 +45,8 @@ def jogar():
                 print("Você Errou! O seu chute foi maior que o numero secreto!")
             elif(menor):
                 print("Você Errou!  seu chute foi menor que o numero secreto!")
+            if(revela_numero_secreto):
+            	print(f"\nVocê perdeu!!\nO Número Secreto é {numero_secreto}")
             pontos_perdidos = abs(numero_secreto - chute)
             pontos = pontos - pontos_perdidos
     print("Fim do Jogo!")
