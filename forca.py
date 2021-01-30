@@ -7,7 +7,7 @@ def jogar():
     palavra_secreta = cria_palavra_secreta()
 
     letras_acertadas = inicializa_letras_acertadas(palavra_secreta)
-    print(letras_acertadas)
+    imprime_letras_acertadas(letras_acertadas)
 
     enforcou = False
     acertou = False
@@ -26,7 +26,7 @@ def jogar():
 
         enforcou = erros == 7
         acertou = "_" not in letras_acertadas
-        print(letras_acertadas)
+        imprime_letras_acertadas(letras_acertadas)
 
     if(acertou):
         imprime_mensagem_vencedor()
@@ -38,6 +38,16 @@ def imprime_mensagem_abertura():
     print("*********************************")
     print("***Bem vindo ao Jogo de Forca!***")
     print("*********************************")
+    
+def imprime_letras_acertadas(letras_acertadas):
+	string = str(letras_acertadas)
+	for i in range(2,len(string)):
+		if(valida_caractere(string,i)):
+			print(string[i-1], end='')
+	print()
+	
+def valida_caractere(string,i):
+	return string[i-1] != "'" and string[i-1] != ","
     
 def cria_palavra_secreta():
     arquivo = open("palavras.txt", "r")
